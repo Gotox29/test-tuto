@@ -1,0 +1,10 @@
+<ngx-datatable
+class="bootstrap table"
+[columns]="columns"
+[rows]="rows"
+[limit]="10"
+[headerHeight]="50"
+[footerHeight]="50"
+[columnMode]="ColumnMode.force"
+(activate)="onActivate($event)"
+></ngx-datatable>
