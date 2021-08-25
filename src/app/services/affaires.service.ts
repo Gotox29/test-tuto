@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { PanierService } from './panier.service';
 
 @Injectable({
   providedIn: 'root'
@@ -63,7 +64,14 @@ export class AffairesService {
     {prop: "commentaire", title: "Commentaires"}
   ]
 
-  constructor() { }
+  constructor(private panierService: PanierService) {
+    /**
+     * Lorsque le programme ajoute une affaire à notre panier
+     * Il retire l'affaire du tableau
+     * Lorsque le programme retire une affaire de notre panier
+     * Il ajoute l'affaire dans le tableau
+     */
+  }
 
   getAffaires() {
     return this.affaires;
