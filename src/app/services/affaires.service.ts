@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { PanierService } from './panier.service';
 
 @Injectable({
@@ -65,7 +65,7 @@ export class AffairesService {
     {prop: "commentaire", title: "Commentaires"}
   ];
 
-  affaires: Subject<any[]> = new Subject<any[]>();
+  affaires: BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.temp);
 
   constructor(private panierService: PanierService) {
     // this.temp = this.affaires;
@@ -78,10 +78,6 @@ export class AffairesService {
     panierService.stock.subscribe((stock) => {
       this.affaires.next(this.temp.filter((aff) => stock.indexOf(aff) === -1));
     });
-  }
-
-  load() {
-    this.affaires.next(this.temp);
   }
 
   getAffaires() {

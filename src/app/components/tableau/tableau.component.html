@@ -1,4 +1,4 @@
-<ngx-datatable *ngIf="rows"
+<ngx-datatable *ngIf="rows$ | async as rows"
 class="bootstrap fullscreen"
 [columns]="columns"
 [rows]="rows"

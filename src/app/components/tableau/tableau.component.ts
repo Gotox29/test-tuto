@@ -17,15 +17,12 @@ export class TableauComponent implements OnInit {
   }
 
   columns: any;
-  rows!: any[];
+  rows$!: Observable<any[]>;
   ColumnMode = ColumnMode;
   
   ngOnInit(): void {
     this.columns = this.affairesService.getColumns();
-    this.affairesService.getAffaires().subscribe((a) => {
-      this.rows = a;
-    })
-    this.affairesService.load();
+    this.rows$ = this.affairesService.getAffaires();
     
   }
 
@@ -33,9 +30,5 @@ export class TableauComponent implements OnInit {
     if (event.type === "click") {
       this.panierService.addAffaire(event.row);
     }
-  }
-
-  rowClass(row?: any) {
-    return 'btn';
   }
 }
