@@ -20,4 +20,8 @@ export class ListeComponent implements OnInit {
   removeAffaire(id: number) {
     this.panierService.removeAffaire(id);
   }
+
+  vider() {
+    this.panierService.removeAllAffaires();
+  }
 }

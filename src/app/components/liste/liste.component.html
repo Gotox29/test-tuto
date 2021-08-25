@@ -1,4 +1,5 @@
 <h2>Affaires dans mon panier</h2>
 <div class="list-group" *ngIf="affaires$ | async as affaires">
+    <button class="list-group-item list-group-item-action list-group-item-danger" (click)="vider()">Tous vider</button>
     <app-liste-element *ngFor="let affaire of affaires" [affaire]="affaire" (clickEvent)="removeAffaire($event)"></app-liste-element>
 </div>

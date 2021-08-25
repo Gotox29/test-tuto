@@ -1,8 +1,8 @@
-<ngx-datatable
-class="bootstrap table"
+<ngx-datatable *ngIf="rows"
+class="bootstrap fullscreen"
 [columns]="columns"
 [rows]="rows"
-[limit]="10"
+[limit]="25"
 [headerHeight]="50"
 [footerHeight]="50"
 [columnMode]="ColumnMode.force"

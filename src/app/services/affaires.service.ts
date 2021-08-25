@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { PanierService } from './panier.service';
 
 @Injectable({
@@ -6,7 +7,7 @@ import { PanierService } from './panier.service';
 })
 export class AffairesService {
 
-  affaires: any[] = [
+  temp: any[] = [
     {id: 0, commentaire: "Lorem"},
     {id: 1, commentaire: "Lorem"},
     {id: 2, commentaire: "Lorem"},
@@ -62,15 +63,25 @@ export class AffairesService {
   columns: any[] = [
     {prop: "id", title: "Ids"},
     {prop: "commentaire", title: "Commentaires"}
-  ]
+  ];
+
+  affaires: Subject<any[]> = new Subject<any[]>();
 
   constructor(private panierService: PanierService) {
+    // this.temp = this.affaires;
     /**
      * Lorsque le programme ajoute une affaire à notre panier
      * Il retire l'affaire du tableau
      * Lorsque le programme retire une affaire de notre panier
      * Il ajoute l'affaire dans le tableau
      */
+    panierService.stock.subscribe((stock) => {
+      this.affaires.next(this.temp.filter((aff) => stock.indexOf(aff) === -1));
+    });
+  }
+
+  load() {
+    this.affaires.next(this.temp);
   }
 
   getAffaires() {
