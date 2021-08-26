@@ -21,7 +21,13 @@ export class TableauComponent implements OnInit {
     this.columns = this.affairesService.getColumns();
   }
 
-  onActivate(event: any) {
+  /**
+   * Lorsque l'utilisateur click sur une affaire dans le tableau, 
+   * le programme l'ajoute au panier.
+   * 
+   * @param event La ligne sur laquel l'utilisateur agi(click/mouseenter/mouseout)
+   */
+  onActivate(event: any): void {
     if (event.type === "click") {
       console.log(event);
       this.panierService.addAffaire(event.row);

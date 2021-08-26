@@ -16,6 +16,12 @@ export class ListeComponent implements OnInit {
     this.affaires = this.panierService.stock;
   }
 
+  /**
+   * Au clic sur un element de la liste,
+   * celui ci est retiré du panier.
+   * 
+   * @param id Identifiant de l'affaire
+   */
   removeAffaire(id: number) {
     this.panierService.removeAffaire(id);
   }

@@ -65,10 +65,19 @@ export class AffairesService {
 
   constructor() { }
 
+  /**
+   * Getter des affaires du tableau
+   * 
+   * @returns La liste des affaires du tableau
+   */
   getAffaires() {
     return this.affaires;
   }
-
+  /**
+   * Getter des entêtes du tableau
+   * 
+   * @returns La liste des entêtes du tableau
+   */
   getColumns() {
     return this.columns;
   }

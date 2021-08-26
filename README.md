@@ -28,10 +28,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Enumération du problème
 
-Lorsque je clique sur un élément du tableau, celui-ci s'ajoute bien dans la liste.
+Lorsque je clic sur un élément du tableau, celui-ci s'ajoute bien dans la liste.
 Mais à l'utilisation plusieurs problèmes apparaissent :
-    - Les affaires peuvent apparaitre plusieurs fois dans la liste.
-    - Si l'on clique sur une affaire de la liste, celle-ci devrait être supprimé, mais ce n'est pas le cas.
+    - Les affaires peuvent apparaitres plusieurs fois dans la liste.
+    - Si je clic sur une affaire de la liste, celle-ci devrait être supprimé, mais ce n'est pas le cas.
     - Après avoir essayé de supprimer une affaire de la liste, la liste ne s'actualise plus.
 
-Nous allons voir comment corriger rapidement celà avec RxJS.
+Nous allons voir pourquoi et comment corriger rapidement celà avec RxJS.
