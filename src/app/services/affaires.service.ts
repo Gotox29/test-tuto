@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { PanierService } from './panier.service';
 
 @Injectable({
@@ -75,8 +76,10 @@ export class AffairesService {
      * Lorsque le programme retire une affaire de notre panier
      * Il ajoute l'affaire dans le tableau
      */
-    panierService.stock.subscribe((stock) => {
-      this.affaires.next(this.temp.filter((aff) => stock.indexOf(aff) === -1));
+    panierService.stock.pipe(
+      map(stock => this.temp.filter((aff) => stock.indexOf(aff) === -1))
+    ).subscribe((stock) => {
+      this.affaires.next(stock);
     });
   }
 
